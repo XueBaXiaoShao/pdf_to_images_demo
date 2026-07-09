@@ -1,37 +1,52 @@
-# PDF 转图片工具
+# PDF To Images Demo
 
-这是一个简单的命令行工具：把 PDF 的每一页转换成一张图片。
+Language: [中文](#中文) | [English](#english) | [日本語](#日本語)
 
-## GUI 界面
+> Disclaimer: This project is only a demo. It is provided as-is, without any warranty. The author is not responsible for any issue, loss, data damage, conversion error, or other consequence caused by using this demo.
 
-双击运行：
+## 中文
+
+这是一个简单的 PDF 转图片 demo 工具，可以把 PDF 的每一页转换成单独的图片文件。
+
+### 免责声明
+
+本项目仅作为 demo 示例提供，不保证稳定性、准确性或适用于任何特定用途。使用本工具产生的任何问题、损失、数据损坏、转换错误或其他后果，作者概不负责。
+
+### 功能
+
+- 支持 GUI 图形界面
+- 支持命令行转换
+- 支持 PNG、JPEG、TIFF 输出
+- 支持设置 DPI
+- 支持指定起始页和结束页
+- GUI 中显示逐页转换进度和百分比
+
+### 依赖
+
+- Python 3.10+
+- Poppler 的 `pdftoppm` 和 `pdfinfo` 命令
+
+如果提示找不到 `pdftoppm` 或 `pdfinfo`，请安装 Poppler，并把 Poppler 的 `bin` 目录加入系统 `PATH`。
+
+### GUI 用法
+
+Windows 下可以双击：
 
 ```powershell
 start_gui.bat
 ```
 
-或者在终端运行：
+也可以在终端运行：
 
 ```powershell
 python .\pdf_to_images_gui.py
 ```
 
-界面中可以选择 PDF 文件、输出目录、图片格式、DPI，以及要转换的页码范围。转换时会显示逐页进度和百分比。
-
-## 依赖
-
-- Python 3.10+
-- Poppler 的 `pdftoppm` 命令
-
-当前 Codex 环境已经检测到 `pdftoppm`。如果你在自己的电脑上运行时提示找不到 `pdftoppm`，请安装 Poppler，并把 `pdftoppm` 加入 `PATH`。
-
-## 用法
+### 命令行用法
 
 ```powershell
 python .\pdf_to_images.py "C:\path\to\input.pdf"
 ```
-
-默认会在 PDF 同目录生成一个 `PDF文件名_images` 文件夹，每页输出一张 PNG。
 
 指定输出目录：
 
@@ -39,7 +54,7 @@ python .\pdf_to_images.py "C:\path\to\input.pdf"
 python .\pdf_to_images.py "C:\path\to\input.pdf" -o "C:\path\to\images"
 ```
 
-指定图片格式和清晰度：
+指定格式和 DPI：
 
 ```powershell
 python .\pdf_to_images.py "C:\path\to\input.pdf" --format jpeg --dpi 300
@@ -51,8 +66,126 @@ python .\pdf_to_images.py "C:\path\to\input.pdf" --format jpeg --dpi 300
 python .\pdf_to_images.py "C:\path\to\input.pdf" --first-page 2 --last-page 5
 ```
 
-如果 `pdftoppm` 不在 PATH，可以手动指定：
+## English
+
+This is a simple PDF to images demo tool. It converts each page of a PDF file into a separate image file.
+
+### Disclaimer
+
+This project is provided as a demo only. Stability, correctness, and fitness for any specific purpose are not guaranteed. The author is not responsible for any issue, loss, data damage, conversion error, or other consequence caused by using this tool.
+
+### Features
+
+- GUI application
+- Command-line conversion
+- PNG, JPEG, and TIFF output
+- Configurable DPI
+- Optional first page and last page range
+- Page-by-page progress and percentage in the GUI
+
+### Requirements
+
+- Python 3.10+
+- Poppler commands: `pdftoppm` and `pdfinfo`
+
+If `pdftoppm` or `pdfinfo` cannot be found, install Poppler and add Poppler's `bin` directory to your system `PATH`.
+
+### GUI Usage
+
+On Windows, double-click:
 
 ```powershell
-python .\pdf_to_images.py "C:\path\to\input.pdf" --pdftoppm "C:\path\to\pdftoppm.exe"
+start_gui.bat
+```
+
+Or run from a terminal:
+
+```powershell
+python .\pdf_to_images_gui.py
+```
+
+### Command-Line Usage
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf"
+```
+
+Set an output directory:
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf" -o "C:\path\to\images"
+```
+
+Set output format and DPI:
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf" --format jpeg --dpi 300
+```
+
+Convert only selected pages:
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf" --first-page 2 --last-page 5
+```
+
+## 日本語
+
+これはシンプルな PDF 画像変換 demo ツールです。PDF の各ページを個別の画像ファイルに変換します。
+
+### 免責事項
+
+本プロジェクトは demo としてのみ提供されています。安定性、正確性、特定用途への適合性は保証されません。本ツールの使用によって発生した問題、損失、データ破損、変換エラー、その他いかなる結果についても、作者は一切責任を負いません。
+
+### 機能
+
+- GUI アプリ
+- コマンドライン変換
+- PNG、JPEG、TIFF 出力
+- DPI 設定
+- 開始ページと終了ページの指定
+- GUI でページごとの進捗とパーセントを表示
+
+### 必要環境
+
+- Python 3.10+
+- Poppler の `pdftoppm` と `pdfinfo` コマンド
+
+`pdftoppm` または `pdfinfo` が見つからない場合は、Poppler をインストールし、Poppler の `bin` ディレクトリをシステムの `PATH` に追加してください。
+
+### GUI の使い方
+
+Windows では以下をダブルクリックします。
+
+```powershell
+start_gui.bat
+```
+
+またはターミナルで実行します。
+
+```powershell
+python .\pdf_to_images_gui.py
+```
+
+### コマンドラインの使い方
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf"
+```
+
+出力先を指定する場合：
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf" -o "C:\path\to\images"
+```
+
+形式と DPI を指定する場合：
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf" --format jpeg --dpi 300
+```
+
+一部のページだけ変換する場合：
+
+```powershell
+python .\pdf_to_images.py "C:\path\to\input.pdf" --first-page 2 --last-page 5
 ```
